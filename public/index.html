@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia App - Sistema de Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✂️ Barbearia do Zé</h1>
+            <p>Agende seu horário de forma rápida e fácil</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('agendamento')">📅 Novo Agendamento</button>
+            <button class="tab-btn" onclick="showTab('historico')">📜 Meu Histórico</button>
+        </div>
+
+        <!-- Aba de Agendamento -->
+        <div id="agendamento" class="tab-content active">
+            <form id="agendamentoForm">
+                <div class="form-group">
+                    <label>📋 Selecione o serviço:</label>
+                    <select id="servico" required>
+                        <option value="">Carregando serviços...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>👤 Seu nome:</label>
+                    <input type="text" id="clienteNome" required placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="form-group">
+                    <label>📱 Telefone (WhatsApp):</label>
+                    <input type="tel" id="clienteTelefone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label>📅 Data:</label>
+                    <input type="date" id="data" required min="">
+                </div>
+
+                <div class="form-group">
+                    <label>⏰ Horário:</label>
+                    <select id="horario" required disabled>
+                        <option value="">Selecione primeiro a data e o serviço</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">✅ Confirmar Agendamento</button>
+            </form>
+            <div id="mensagem" class="mensagem"></div>
+        </div>
+
+        <!-- Aba de Histórico -->
+        <div id="historico" class="tab-content">
+            <div class="form-group">
+                <label>📱 Digite seu telefone para consultar histórico:</label>
+                <div class="historico-busca">
+                    <input type="tel" id="buscaTelefone" placeholder="(00) 00000-0000">
+                    <button onclick="buscarHistorico()" class="btn-secondary">🔍 Buscar</button>
+                </div>
+            </div>
+            <div id="historicoLista" class="historico-lista"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
